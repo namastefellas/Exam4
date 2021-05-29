@@ -10,7 +10,10 @@
         <h6 class="card-subtitle mb-2">{{ photo.created_at }}</h6>
         <h6 class="card-subtitle mb-2"><img class="img" src="{{ photo.img.url }}" width="250" height="250" alt="user picture">
         </h6>
-        <button></button>
+        {% if request.user in photo.favourites.all %}
+        <h6><button onclick=fav(event)">Add To Fav</button></h6>
+        {% else %}
+        <h6><button onclick=FavRemove(event)">Remove From Fav</button></h6>
         <a href="{% url 'album:albumview' albums.pk %}">Album</a>
         <a href="{% url 'album:photoview' photo.pk %}">Детали</a>
         <a href="{% url 'album:photodelete' photo.pk %}"><img src="https://img.icons8.com/fluent-systems-filled/25/000000/trash.png"/></a>
@@ -20,3 +23,33 @@
 {% endfor %}
 {% include 'partial/pagination.html' %}
 {% endblock %}
+
+<script>
+    async function fav(event) {
+        event.preventDefault()
+        let base_url = '{% url "album:addfav" photo.id  %}'
+        let response = await fetch(base_url)
+        let button = event.target
+        button.innerText = 'Remove From Fav'
+        let tot = document.getElementById('favs')
+        tot.innerText = parseInt(tot.innerText) +1
+        button.onclick = () => {
+            FavRemove(event)
+        }
+        }
+
+
+        async function FavRemove(event) {
+         event.preventDefault()
+         let base_url = '{% url "album:favdelete" photo.id  %}'
+         let response = await fetch(base_url)
+         let button = event.target
+         button.innerText = 'Add To Fav'
+         let tot = document.getElementById('favs')
+         tot.innerText = parseInt(tot.innerText) -1
+         button.dataset.url = base_url.replace('favadd', 'favdelete')
+        button.onclick = () => {
+            fav(event)
+        }
+        }
+</script>
