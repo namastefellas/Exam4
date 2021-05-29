@@ -1,0 +1,98 @@
+[
+{
+  "model": "album.photo",
+  "pk": 2,
+  "fields": {
+    "signature": "Rammstein",
+    "created_at": "2021-05-29T09:29:39.976Z",
+    "img": "user_pics/Rammstein-Logo.png",
+    "album": null,
+    "category": "public",
+    "eyw_transactionref": null,
+    "author": [
+      2
+    ],
+    "favourites": []
+  }
+},
+{
+  "model": "album.photo",
+  "pk": 4,
+  "fields": {
+    "signature": "admin21",
+    "created_at": "2021-05-29T09:43:08.810Z",
+    "img": "user_pics/the-witcher-the-witcher-3-wild-hunt-bonfire-fire-wallpaper-preview.jpg",
+    "album": 1,
+    "category": "public",
+    "eyw_transactionref": null,
+    "author": [
+      1
+    ],
+    "favourites": []
+  }
+},
+{
+  "model": "album.albums",
+  "pk": 1,
+  "fields": {
+    "name": "Admin Album",
+    "description": "Some random text",
+    "created_at": "2021-05-29T06:53:27.812Z",
+    "category": "public",
+    "album_author": [
+      1
+    ],
+    "favourites": []
+  }
+},
+{
+  "model": "album.albums",
+  "pk": 2,
+  "fields": {
+    "name": "namaste",
+    "description": "asdasdasd",
+    "created_at": "2021-05-29T11:26:52.588Z",
+    "category": "public",
+    "album_author": [
+      1
+    ],
+    "favourites": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$260000$QLkth3oC1nPxtxMSv78EDw$S6I4laNGTsWq1j0InRW3hGKJdeneTvurEbreigJKCJQ=",
+    "last_login": "2021-05-29T10:59:21.151Z",
+    "is_superuser": true,
+    "username": "admin",
+    "first_name": "",
+    "last_name": "",
+    "email": "admin@admin.admin",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2021-05-29T06:27:42.110Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 2,
+  "fields": {
+    "password": "pbkdf2_sha256$260000$9Equ7Jb9WVeUoORZsRI7S1$ln1FT3CCm9GPjLAkpKfuRf8N8hL7wcMY78URAA+IGn0=",
+    "last_login": "2021-05-29T10:46:00.733Z",
+    "is_superuser": false,
+    "username": "user_1",
+    "first_name": "User",
+    "last_name": "",
+    "email": "user@user.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2021-05-29T08:34:47.404Z",
+    "groups": [],
+    "user_permissions": []
+  }
+}
+]

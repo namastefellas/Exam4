@@ -8,9 +8,9 @@ from django.views.generic import (
     View
 )
 from django.urls import reverse, reverse_lazy
-]from django.utils.http import urlencode
+from django.utils.http import urlencode
 from django.shortcuts import render, get_object_or_404, redirect
-from article.models import Photo, Albums
+from album.models import Photo, Albums
 from django.http import JsonResponse
 
 

@@ -45,12 +45,7 @@ class Photo(models.Model):
         db_table='pic_favs'
     )
 
-    def __init__(self):
-        super(Photo, self).__init__()
-        self.eyw_transactionref = str(uuid.uuid4())
 
-    def __unicode__(self):
-        return self.user
 
     class Meta:
         db_table = 'photos'
