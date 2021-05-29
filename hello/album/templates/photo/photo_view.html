@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block menu %}
+{% endblock %}
+{% block content %}
+<div class="container">
+        <div class="card mb-3" style="width: 18rem;">
+            <div class="card-body mb-2">
+            <h5 class="card-title">Author: {{ photo.author }}</h5>
+            <h6 class="card-subtitle mb-2">Signature: {{ photo.signature }}</h6>
+            <h6 class="card-subtitle mb-2"><img class="img" src="{{ photo.img.url }}" width="250" height="250" alt="user picture">
+            <p class="card-text">{{ photo.created_at }}</p> 
+            {% if request.user in project.user.all %}         
+            <a href="{% url 'album:photodelete' photo.pk %}"><img src="https://img.icons8.com/fluent-systems-filled/25/000000/trash.png"/></a>
+            {% endif %}
+            {% if request.user in project.user.all %}         
+            <a href="{% url 'album:photoedit' photo.pk %}"><img src="https://img.icons8.com/fluent-systems-filled/25/000000/edit.png"/></a>
+            {% endif %}
+            <a href="{% url 'album:photolist' %}">Back to list</a>
+            </div>    
+        </div>
+    </div>
+{% endblock %}    

@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block title %}User Profile{% endblock %}
+{% block menu %}
+{% endblock %}
+{% block content %}
+    {% if user.profile.description %}
+    <p>About: {{ user.profile.description }}</p>
+    {% endif %}
+    <p>Nickname: {{ user.username }}</p>
+    <p>First Name: {{ user.first_name }}</p>
+    <p>Last Name: {{ user.last_name }}</p>
+    <p>Email: {{ user.email }}</p>
+    {% for photo in photos %}
+        <img class="img" src="{{ photo.img.url }}" width="250" height="250" alt="user picture">        
+    {% endfor %}
+{% endblock %}

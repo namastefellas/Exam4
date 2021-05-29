@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block menu %}
+{% endblock %}
+{% block content %}
+<div class="container">
+    <div class="card mb-3" style="width: 18rem;">
+        <div class="card-body mb-2">
+        <h5 class="card-title">Name: {{ album.name }}</h5>
+        <p class="card-text">{{ album.description }}</p>
+        <p class="card-text">{{ album.created_at }}</p>
+        {% for user in album.album_author.all %}
+        <p><a href="{% url 'accounts:user_profile' user.pk %}">{{ user.username }}</a></p>
+        {% if request.user in project.user.all %}         
+        <a href="{% url 'album:albumedit' album.pk %}">Edit</a>
+        {% endif %}
+        {% if request.user in project.user.all %}         
+        <a href="{% url 'album:albumdelete' album.pk %}">Delete</a>
+        {% endif %}
+        {% endfor %}
+    
+        </div> 
+        {% for photo in album.albums.all %}  
+        <div class="card mb-2" style="width: 18rem;">
+            <div class="card-body mb-2">
+            <h5 class="card-title">Status: {{ photo.signature }}</h5>
+            <h6 class="card-subtitle mb-2">{{ photo.created_at }}</h6>
+            <h6 class="card-subtitle mb-2"><img class="img" src="{{ photo.img.url }}" width="250" height="250" alt="user picture"></h6>
+            <a href="{% url 'album:photoview' albums.pk %}">Details</a><br>
+            {% if request.user in project.user.all %}         
+            <a href="{% url 'album:photodelete' albums.pk %}"><img src="https://img.icons8.com/fluent-systems-filled/25/000000/trash.png"/></a>
+            {% endif %}
+            {% if request.user in project.user.all %}         
+            <a href="{% url 'album:photoedit' albums.pk %}"><img src="https://img.icons8.com/fluent-systems-filled/25/000000/edit.png"/></a>
+            {% endif %}
+            </div>    
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}    
