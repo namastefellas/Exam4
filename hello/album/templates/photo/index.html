@@ -10,6 +10,7 @@
         <h6 class="card-subtitle mb-2">{{ photo.created_at }}</h6>
         <h6 class="card-subtitle mb-2"><img class="img" src="{{ photo.img.url }}" width="250" height="250" alt="user picture">
         </h6>
+        <button></button>
         <a href="{% url 'album:albumview' albums.pk %}">Album</a>
         <a href="{% url 'album:photoview' photo.pk %}">Детали</a>
         <a href="{% url 'album:photodelete' photo.pk %}"><img src="https://img.icons8.com/fluent-systems-filled/25/000000/trash.png"/></a>

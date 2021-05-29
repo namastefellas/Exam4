@@ -39,6 +39,12 @@ class Photo(models.Model):
     category = models.CharField(max_length=100, null=True, blank=True, default='public', choices=status)
     eyw_transactionref=models.CharField(max_length=100, null=True, blank=True, unique=True)
 
+    favourites = models.ManyToManyField(
+        get_user_model(),
+        related_name='fav_pic',
+        db_table='pic_favs'
+    )
+
     def __init__(self):
         super(Photo, self).__init__()
         self.eyw_transactionref = str(uuid.uuid4())
@@ -74,6 +80,12 @@ class Albums(models.Model):
     )
     created_at = models.DateTimeField(auto_now_add=True, verbose_name='Created At')
     category = models.CharField(max_length=100, null=True, blank=True, default='public', choices=status)
+
+    favourites = models.ManyToManyField(
+        get_user_model(),
+        related_name='fav_alb',
+        db_table='alb_fav'
+    )
 
 
     class Meta:
